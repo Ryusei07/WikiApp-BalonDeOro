@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             WikiAppBalonDeOroTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "Androide",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
