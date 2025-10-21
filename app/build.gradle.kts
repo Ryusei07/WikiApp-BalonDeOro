@@ -59,5 +59,6 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.kotlin.serialization)
+    implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.androidx.navigation.compose)
 }
