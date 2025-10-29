@@ -5,7 +5,7 @@ data class Estadisticas (
     val cantidadAsitencias: Int,
     val club: String,
     val premios: String,
-    val logrosDestacados: List<String>
+    val logrosDestacados: String
 
 ){
 }
