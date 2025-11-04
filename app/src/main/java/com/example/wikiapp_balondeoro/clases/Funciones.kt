@@ -92,7 +92,7 @@ class Funciones {
             Estadisticas(59,15,"Real Madrid", "Copa del Rey", "Maximo goleador,figura clave en los tutilos nacionales"),
             Estadisticas(51,22,"Real Madrid", "Supercopa de España", "Maximo goleador, rendimiento destacado"),
             Estadisticas(58,27,"Barcelona", "LaLiga,Copa del Rey,Liga de Campeones de la UEFA", "Maximo goleador y asistente, figura en titulos nacionales e internacionales"),
-            Estadisticas(27,12,"", "", ""), // 2016
+            Estadisticas(27,12,"", "", ""), // 2016 messi
             Estadisticas(27,12,"", "", ""),
             Estadisticas(27,12,"", "", ""),
             Estadisticas(27,12,"", "", ""),
