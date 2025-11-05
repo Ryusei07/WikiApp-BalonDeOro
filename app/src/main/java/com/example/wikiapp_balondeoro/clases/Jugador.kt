@@ -1,5 +1,7 @@
 package com.example.wikiapp_balondeoro.clases
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Jugador (
     val nombre: String,
     val nacionalidad: String,
