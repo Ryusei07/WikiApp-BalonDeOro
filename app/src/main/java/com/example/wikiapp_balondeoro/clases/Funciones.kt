@@ -1,8 +1,5 @@
 package com.example.wikiapp_balondeoro.clases
-
-class Funciones {
-
-    fun crearClubes(): List<Club>{
+fun crearClubes(): List<Club>{
         val clubes: List<Club> = listOf(
             Club("Real Madrid", 12, "España"),
             Club("Barcelona", 12, "España"),
@@ -92,20 +89,31 @@ class Funciones {
             Estadisticas(59,15,"Real Madrid", "Copa del Rey", "Maximo goleador,figura clave en los tutilos nacionales"),
             Estadisticas(51,22,"Real Madrid", "Supercopa de España", "Maximo goleador, rendimiento destacado"),
             Estadisticas(58,27,"Barcelona", "LaLiga,Copa del Rey,Liga de Campeones de la UEFA", "Maximo goleador y asistente, figura en titulos nacionales e internacionales"),
-            Estadisticas(27,12,"", "", ""), // 2016 messi
-            Estadisticas(27,12,"", "", ""),
-            Estadisticas(27,12,"", "", ""),
-            Estadisticas(27,12,"", "", ""),
+            Estadisticas(55,12,"Real Madrid", "LaLiga, Liga de Campeones de la UEFA, Eurocopa 2016", "Maximo goleador, figura clave en titulos nacioneales e internacionales"),
+            Estadisticas(55,15,"Real Madrid", "LaLiga, Liga de Campeones de la UEFA, Supercopa de Europa, Supercopa de España", "Maximo goleador, rendimiento sobresaliente"),
+            Estadisticas(2,6,"Real Madrid", "Liga de Campeones de la UEFA, Subcampeon mundial 2018", "Liderazgo y rendimiento destacado en liga y mundial"),
+            Estadisticas(54,19,"Barcelona", "LaLiga, Supercopa de España", "Maximo goleador y asistente, figura en titulos nacionales"),
+            Estadisticas(0,0,"No se otorgo en ese año", "No se otorgo en ese año", "No se otorgo en ese año"),
+            Estadisticas(41,17,"Paris Saint-Germain", "Copa America 2021, Ligue 1", "Maximo goeleador y asistente, rendimiento sobresaliente"),
+            Estadisticas(44,15,"Real Madrid", "LaLiga, Liga de Campeones de la UEFA, Supercopa de Europa", "Maximo goleador, figura clave en titulos nacionales e internacionales"),
+            Estadisticas(30,9,"Inter Miami", "Luegues Cup, Copa de la Liga", "Maximo goleador y asistente, figura en titulos internacionales"),
+            Estadisticas(12,7,"Manchester City", "Premier League, FA cup, Liga de Campeones de la UEFA, Eurocopa 2024", "Maximo goleador de la liga, rendiemiento destacado"),
+            Estadisticas(27,15,"Paris Saint-Germain", "Ligue 1, Copa de francia, Liga de Campeones de la UEFA", "Maximo goleador y asistente, figura en titulos nacionales e internacionales")
         )
         return estadisticas
     }
-}
 
-fun crearJugadores(){
-    val jugadores: List<Jugador> = listOf(
-        //
-    )
+    fun crearJugadores(){
+        val equipos  = crearClubes()
+        val estad = crearEstadisticas()
+        val jugadores: List<Jugador> = listOf(
+            Jugador("Stanley Matthews", "Ingles", listOf(1956), 1, listOf(estad[0])),
+            Jugador("Alfredo Stéfano Di Stéfano Laulhé", "Argentino/Español", listOf(1957,1959), 2, listOf(estad[1],estad[3])),
+            Jugador("Raymond Kopaszewski", "Frences/Polaco", listOf(1958), 1, listOf(estad[2]))
+        )
 
 
 
-}
+    }
+
+
