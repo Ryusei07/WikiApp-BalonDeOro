@@ -103,17 +103,58 @@ fun crearClubes(): List<Club>{
         return estadisticas
     }
 
-    fun crearJugadores(){
-        val equipos  = crearClubes()
-        val estad = crearEstadisticas()
-        val jugadores: List<Jugador> = listOf(
-            Jugador("Stanley Matthews", "Ingles", listOf(1956), 1, listOf(estad[0])),
-            Jugador("Alfredo Stéfano Di Stéfano Laulhé", "Argentino/Español", listOf(1957,1959), 2, listOf(estad[1],estad[3])),
-            Jugador("Raymond Kopaszewski", "Frences/Polaco", listOf(1958), 1, listOf(estad[2]))
-        )
-
-
-
-    }
+fun crearJugadores(){
+    val equipos  = crearClubes()
+    val estad = crearEstadisticas()
+    val jugadores: List<Jugador> = listOf(
+        Jugador("Stanley Matthews", "Ingles", listOf(1956), 1, listOf(estad[0])),
+        Jugador("Alfredo Stéfano Di Stéfano Laulhé", "Argentino/Español", listOf(1957,1959), 2, listOf(estad[1],estad[3])),
+        Jugador("Raymond Kopaszewski", "Frences/Polaco", listOf(1958), 1, listOf(estad[2])),
+        Jugador("Luis Suárez Miramontes", "Español", listOf(1960), 1, listOf(estad[4])),
+        Jugador("Enrique Omar Sívori", "Argentina/Italiana", listOf(1961), 1, listOf(estad[5])),
+        Jugador("Josef Masopust", "Republica Checa", listOf(1962), 1, listOf(estad[6])),
+        Jugador("Lev Ivánovich Yashin", "Union Sovietica", listOf(1963), 1, listOf(estad[7])),
+        Jugador("Denis Law", "Británica", listOf(1964), 1, listOf(estad[8])),
+        Jugador("Eusébio da Silva Ferreira", "Portugal", listOf(1965), 1, listOf(estad[9])),
+        Jugador("Robert Charlton", "Ingles", listOf(1966), 1, listOf(estad[10])),
+        Jugador("Flórián Albert", "hungaro", listOf(1967), 1, listOf(estad[11])),
+        Jugador("George Best", "Norte de Irlanda", listOf(1968), 1, listOf(estad[12])),
+        Jugador("Giovanni Rivera", "Italia", listOf(1969), 1, listOf(estad[13])),
+        Jugador("Gerhard Müller", "Aleman", listOf(1970), 1, listOf(estad[14])),
+        Jugador("Hendrik Johannes Cruijff", "Paises Bajos", listOf(1971,1973,1974), 3, listOf(estad[15],estad[17],estad[18])),
+        Jugador("Franz Anton Beckenbauer", "aleman", listOf(1972,1976), 2, listOf(estad[16],estad[20])),
+        Jugador("Oleh Volodímirovich Blojín", "Union Sovietica", listOf(1975), 1, listOf(estad[19])),
+        Jugador("Allan Rodenkam Simonsen", "dinamarca", listOf(1977), 1, listOf(estad[21])),
+        Jugador("Joseph Kevin Keegan", "Ingles", listOf(1978,1979), 2, listOf(estad[22],estad[23])),
+        Jugador("Karl-Heinz Rummenigge", "aleman", listOf(1980,1981), 2, listOf(estad[24],estad[25])),
+        Jugador("Paolo Rossi", "Italiana", listOf(1982), 1, listOf(estad[26])),
+        Jugador("Michel François Platini", "Frances", listOf(1983,1984,1985), 3, listOf(estad[27],estad[28],estad[29])),
+        Jugador("Íhor Ivánovich Belánov", "Union Sovietica", listOf(1986), 1, listOf(estad[30])),
+        Jugador("Ruud Gullit", "Paises Bajos", listOf(1987), 1, listOf(estad[31])),
+        Jugador("Marcel van Basten ", "Paises Bajos", listOf(1988,1989,1992), 3, listOf(estad[32],estad[33],estad[36])),
+        Jugador("Lothar Herbert Matthäus", "Aleman", listOf(1990), 1, listOf(estad[34])),
+        Jugador("jean-Pierre Papin", "Frances", listOf(1991), 1, listOf(estad[35])),
+        Jugador("Roberto Baggio", "Italiano", listOf(1993), 1, listOf(estad[37])),
+        Jugador("Hristo Stoichkov", "bulgaro", listOf(1994), 1, listOf(estad[38])),
+        Jugador("George Tawlon Manneh Oppong Ousman Weah", "Liberia", listOf(1995), 1, listOf(estad[39])),
+        Jugador("Matthias Sammer", "Aleman", listOf(1996), 1, listOf(estad[40])),
+        Jugador("Ronaldo Luís Nazário de Lima", "Brazileño", listOf(1997,2002), 2, listOf(estad[41],estad[46])),
+        Jugador("Zinedine Yazid Zidane", "Frances", listOf(1998), 1, listOf(estad[42])),
+        Jugador("Vítor Borba Ferreira Gomes", "Brazileño", listOf(1999), 1, listOf(estad[43])),
+        Jugador("Luís Filipe Madeira Caeiro Figo", "Portugal", listOf(2000), 1, listOf(estad[44])),
+        Jugador("Michael James Owen", "Ingles", listOf(2001), 1, listOf(estad[45])),
+        Jugador("Pavel Nedvěd", "Republica Checa", listOf(2003), 1, listOf(estad[47])),
+        Jugador("Andriy Mykolayovych Shevchenko", "Ucraniano", listOf(2004), 1, listOf(estad[48])),
+        Jugador("Ronaldo De Assis Moreira", "Brazileño", listOf(2005), 1, listOf(estad[49])),
+        Jugador("Fabio Cannavaro", "Italiano", listOf(2006), 1, listOf(estad[50])),
+        Jugador("Ricardo Izecson Dos Santos Leite", "Brazileño", listOf(2007), 1, listOf(estad[51])),
+        Jugador("Cristiano Ronaldo dos Santos Aveiro", "Portugal", listOf(2008,2013,2014,2016,2017), 5, listOf(estad[52],estad[57],estad[58],estad[60],estad[61])),
+        Jugador("Lionel Andrés Messi Cuccittini", "Argentino", listOf(2009,2010,2011,2012,2015,2019,2021,2023), 8, listOf(estad[53],estad[54],estad[55],estad[56],estad[59],estad[63],estad[64],estad[66])),
+        Jugador("Luka Modrić", "Croata", listOf(2018), 1, listOf(estad[62])),
+        Jugador("Karim Mostafa Benzema", "Frances", listOf(2022), 1, listOf(estad[65])),
+        Jugador("Rodrigo Hernández Cascante", "Español", listOf(2024), 1, listOf(estad[67])),
+        Jugador("Masour Ousmane Dembelé", "Frances", listOf(2025), 1, listOf(estad[68])),
+    )
+}
 
 
