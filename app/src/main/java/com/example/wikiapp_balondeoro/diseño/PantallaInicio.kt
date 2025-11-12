@@ -3,8 +3,8 @@ package com.example.wikiapp_balondeoro.diseño
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
+// import androidx.compose.foundation.lazy.items // Ya no se usa 'items', así que es opcional
+import androidx.compose.foundation.shape.RoundedCornerShape // <-- EL IMPORT QUE FALTABA
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
@@ -55,7 +55,7 @@ fun PantallaInicio(
             ) {
                 Surface(
                     shape = RoundedCornerShape(50),
-                    color = Color(0xFFD4AF37).copy(alpha = 0.1f)
+                    color = Color(0xFFD4AF37).copy(alpha = 0.1f) // Más transparente
                 ) {
                     Text(
                         text = "Ballon D'Or",
@@ -68,7 +68,7 @@ fun PantallaInicio(
                 Spacer(modifier = Modifier.height(12.dp))
                 Surface(
                     shape = RoundedCornerShape(50),
-                    color = Color(0xFFD4AF37).copy(alpha = 0.1f)
+                    color = Color(0xFFD4AF37).copy(alpha = 0.1f) // Más transparente
                 ) {
                     Text(
                         text = "France Football",
@@ -78,6 +78,7 @@ fun PantallaInicio(
                     )
                 }
             }
+
 
             // --- RECTÁNGULO CON TEXTO SCROLLING ---
             Surface(
@@ -89,18 +90,55 @@ fun PantallaInicio(
             ) {
                 LazyColumn(
                     modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    val textoDescriptivo = listOf(
-                        "La revista francesa France Football, de publicación bisemanal instaurada en 1946, decidió por incentiva del prestigioso periodista y editor Gabriel Hanot, impulsor también de la Copa de Clubes Campeones Europeos, actual Liga de Campeones, otorgar un galardón individual que designase al mejor futbolista del momento.",
-                        "En 1995 hubo un cambio en las reglas para permitir que los futbolistas no europeos fueran escogidos siempre y cuando pertenecieran a un club de dicho continente. Las normas fueron modificadas nuevamente en 2007 para que los futbolistas de cualquier nacionalidad y de cualquier club de todo el mundo pudieran ser elegidos para el premio. Hasta entonces no se celebraba ningún tipo de ceremonia pública de entrega del trofeo, pero a partir de ese año se comienza a celebrar una ceremonia anual para la entrega del premio.",
-                        "También en las modificaciones de 2007 se amplió el número de periodistas que podían votar. Hasta ese momento el premio era designado por 53 periodistas europeos procedentes de cada uno de los países de la UEFA, pero se añadieron otros 43 no europeos procedentes de países cuyas selecciones nacionales habían disputado al menos una fase final de un Mundial."
-                    )
+                    // --- Primer párrafo de texto ---
 
-                    items(textoDescriptivo) { parrafo ->
+                    // --- IMAGEN CON FONDO Y FORMA ---
+                    item {
+                        Surface(
+                            shape = RoundedCornerShape(3.dp),
+                            color = Color.White.copy(alpha = 0.0f),
+                            modifier = Modifier
+                                .fillMaxWidth(0.8f)
+                                .padding(vertical = 0.dp)
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.balon_oro_dos),
+                                contentDescription = "Balón de Oro",
+                                modifier = Modifier
+                                    .padding(50.dp)
+                                    .fillMaxWidth(),
+                                contentScale = ContentScale.Fit
+                            )
+                        }
+                    }
+
+                    item {
                         Text(
-                            text = parrafo,
+                            text = "La revista francesa France Football, de publicación bisemanal instaurada en 1946, decidió por incentiva del prestigioso periodista y editor Gabriel Hanot, impulsor también de la Copa de Clubes Campeones Europeos, actual Liga de Campeones, otorgar un galardón individual que designase al mejor futbolista del momento.",
+                            color = Color.White,
+                            fontSize = 16.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(bottom = 16.dp)
+                        )
+                    }
+
+
+
+                    // --- Segundo y tercer párrafo de texto ---
+                    item {
+                        Text(
+                            text = "En 1995 hubo un cambio en las reglas para permitir que los futbolistas no europeos fueran escogidos siempre y cuando pertenecieran a un club de dicho continente. Las normas fueron modificadas nuevamente en 2007 para que los futbolistas de cualquier nacionalidad y de cualquier club de todo el mundo pudieran ser elegidos para el premio.",
+                            color = Color.White,
+                            fontSize = 16.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(bottom = 16.dp)
+                        )
+                    }
+                    item {
+                        Text(
+                            text = "También en las modificaciones de 2007 se amplió el número de periodistas que podían votar. Hasta ese momento el premio era designado por 53 periodistas europeos procedentes de cada uno de los países de la UEFA, pero se añadieron otros 43 no europeos.",
                             color = Color.White,
                             fontSize = 16.sp,
                             textAlign = TextAlign.Center,
@@ -110,56 +148,37 @@ fun PantallaInicio(
                 }
             }
 
-            // --- NUEVA SECCIÓN DE BOTONES EN FILA ---
+
+            // --- SECCIÓN DE BOTONES ---
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                // Botón "Jugadores"
                 Button(
-                    onClick = onJugadoresClicked, // Asigna la función para jugadores
+                    onClick = onJugadoresClicked,
                     shape = RoundedCornerShape(50),
                     modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF333333)
-                    )
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF333333))
                 ) {
-                    Text(
-                        text = "Jugadores",
-                        fontSize = 18.sp,
-                        color = Color.White,
-                        modifier = Modifier.padding(vertical = 8.dp)
-                    )
+                    Text("Jugadores", fontSize = 18.sp, color = Color.White, modifier = Modifier.padding(vertical = 8.dp))
                 }
-
-                // Botón "Equipos"
                 Button(
-                    onClick = onEquiposClicked, // Asigna la función para equipos
+                    onClick = onEquiposClicked,
                     shape = RoundedCornerShape(50),
                     modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF333333)
-                    )
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF333333))
                 ) {
-                    Text(
-                        text = "Equipos",
-                        fontSize = 18.sp,
-                        color = Color.White,
-                        modifier = Modifier.padding(vertical = 8.dp)
-                    )
+                    Text("Equipos", fontSize = 18.sp, color = Color.White, modifier = Modifier.padding(vertical = 8.dp))
                 }
             }
         }
     }
 }
 
-
-
 @Preview(showBackground = true, device = "id:pixel_4")
 @Composable
 fun PantallaInicioPreview() {
-    // Actualizamos el preview para que siga funcionando
     PantallaInicio(onJugadoresClicked = {}, onEquiposClicked = {})
 }
