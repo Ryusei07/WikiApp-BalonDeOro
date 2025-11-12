@@ -55,7 +55,7 @@ fun PantallaInicio(
             ) {
                 Surface(
                     shape = RoundedCornerShape(50),
-                    color = Color(0xFFD4AF37).copy(alpha = 0.6f)
+                    color = Color(0xFFD4AF37).copy(alpha = 0.1f)
                 ) {
                     Text(
                         text = "Ballon D'Or",
@@ -68,7 +68,7 @@ fun PantallaInicio(
                 Spacer(modifier = Modifier.height(12.dp))
                 Surface(
                     shape = RoundedCornerShape(50),
-                    color = Color(0xFFD4AF37).copy(alpha = 0.6f)
+                    color = Color(0xFFD4AF37).copy(alpha = 0.1f)
                 ) {
                     Text(
                         text = "France Football",
