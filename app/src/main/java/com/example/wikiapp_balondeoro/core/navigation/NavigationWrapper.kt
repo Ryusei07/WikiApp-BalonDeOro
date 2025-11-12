@@ -8,11 +8,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.wikiapp_balondeoro.clases.Jugador
+import com.example.wikiapp_balondeoro.diseño.PantallaJugadores
 import com.example.wikiapp_balondeoro.views.clubs.ClubsScreen
 import com.example.wikiapp_balondeoro.views.details_player.DetailsPlayerScreen
 import com.example.wikiapp_balondeoro.views.history.HistoryScreen
 import com.example.wikiapp_balondeoro.views.home.HomeScreen
-import com.example.wikiapp_balondeoro.views.players.PlayersScreen
 import kotlinx.serialization.json.Json
 import kotlin.reflect.typeOf
 
@@ -27,7 +27,7 @@ fun NavigationWrapper() {
             HistoryScreen(navController = navController)
         }
         composable<Players> {
-            PlayersScreen(navController = navController)
+            PantallaJugadores()
         }
         composable<PlayersDetails>(
             typeMap = mapOf(typeOf<Jugador>() to object : NavType<Jugador>(isNullableAllowed = false) {

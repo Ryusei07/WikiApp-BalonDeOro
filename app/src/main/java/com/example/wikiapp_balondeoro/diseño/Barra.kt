@@ -15,9 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-@Preview(showBackground = true)
 @Composable
-fun barra(){
+fun Barra(titulo: String){
     Column (
         modifier = Modifier
             .fillMaxWidth()
@@ -30,13 +29,19 @@ fun barra(){
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(40.dp)
+                .height(50.dp)
                 .clip(RoundedCornerShape(6.dp))
                 .background(color = Color(0xFF000000)),
             contentAlignment = Alignment.CenterStart
         ) {
-            Text("Jugador", color = Color.Yellow)
+            Text(titulo, color = Color.Yellow)
         }
 
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BarraPreview(){
+    Barra(titulo = "Jugador de prueba")
 }
