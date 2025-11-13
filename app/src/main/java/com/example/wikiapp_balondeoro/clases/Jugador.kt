@@ -7,6 +7,7 @@ data class Jugador (
     val nacionalidad: String,
     val añosBalones: List<Int>,
     val cantidadBalones: Int,
-    val stats: List<Estadisticas>
+    val stats: List<Estadisticas>,
+    val imagen: Int
 ){
 }
