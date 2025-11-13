@@ -1,6 +1,5 @@
 package com.example.wikiapp_balondeoro.core.navigation
 
-import com.example.wikiapp_balondeoro.clases.Jugador
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -13,7 +12,7 @@ object History
 object Players
 
 @Serializable
-data class PlayersDetails(val jugador: Jugador)
+data class PlayersDetails(val playerIndex: Int)
 
 @Serializable
 object Clubs
