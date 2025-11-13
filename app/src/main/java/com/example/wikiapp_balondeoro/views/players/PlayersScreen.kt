@@ -10,7 +10,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.wikiapp_balondeoro.clases.crearJugadores
-import com.example.wikiapp_balondeoro.core.navigation.PlayersDetails
+import com.example.wikiapp_balondeoro.core.navigation.Route
+import com.example.wikiapp_balondeoro.views.details_player.DetailsPlayerScreen
 import com.example.wikiapp_balondeoro.views.common.Barra
 
 @Composable
@@ -20,7 +21,11 @@ fun PlayersScreen(navController: NavController) {
         itemsIndexed(jugadores) { index, jugador ->
             Barra(
                 titulo = jugador.nombre,
-                modifier = Modifier.clickable { navController.navigate(PlayersDetails(playerIndex = index)) }
+                modifier = Modifier.clickable { navController.navigate(
+                    Route.PlayersDetails(
+                        playerIndex = index
+                    )
+                ) }
             )
         }
     }
