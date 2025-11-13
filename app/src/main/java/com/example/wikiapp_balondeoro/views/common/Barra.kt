@@ -1,4 +1,5 @@
-package com.example.wikiapp_balondeoro.diseño
+package com.example.wikiapp_balondeoro.views.common
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,9 +17,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Barra(titulo: String){
+fun Barra(titulo: String, modifier: Modifier = Modifier){
     Column (
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(8.dp))
             .background(color = Color(0xFFEFEFEF))
