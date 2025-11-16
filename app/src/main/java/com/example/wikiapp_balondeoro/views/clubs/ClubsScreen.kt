@@ -25,7 +25,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -78,23 +77,18 @@ fun ClubsScreen(navController: NavController) {
             TopBarEquipos(navController)
 
             // 3. LISTA DENTRO DE UN SURFACE TRANSPARENTE
-            Surface(
-                color = Color.Transparent,
-                modifier = Modifier.fillMaxSize()
+            LazyColumn(
+                contentPadding = PaddingValues(vertical = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp) // Espacio entre cada botón
             ) {
-                LazyColumn(
-                    contentPadding = PaddingValues(vertical = 16.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp) // Espacio entre cada botón
-                ) {
-                    items(clubes) { club ->
-                        ClubButton(
-                            club = club,
-                            onClick = {
-                                // TODO: Aquí irá la navegación a la página de detalles del club
-                                // Ejemplo: navController.navigate(ClubDetails(club.id))
-                            }
-                        )
-                    }
+                items(clubes) { club ->
+                    ClubButton(
+                        club = club,
+                        onClick = {
+                            // TODO: Aquí irá la navegación a la página de detalles del club
+                            // Ejemplo: navController.navigate(ClubDetails(club.id))
+                        }
+                    )
                 }
             }
         }
@@ -134,12 +128,12 @@ fun TopBarEquipos(navController: NavController) {
 fun ClubButton(club: Club, onClick: () -> Unit) {
     val buttonColor = when (club.nombre) {
         "Real Madrid" -> BlancoMadid
-        "FC Barcelona" -> RojoBarca
+        "Barcelona" -> RojoBarca
         "Juventus" -> BlancoJuventus
         "AC Milan" -> RojoAcMilan
         "Bayern de Múnich" -> RojoBayern
         "Manchester United" -> RojoManchesterUnited
-        "Dinamo de Kiev" -> AzulDinamoKiev
+        "Dynamo de Kiev" -> AzulDinamoKiev
         "Hamburg" -> AzulHamburg
         "Internazionale" -> AzulInternazionale
         "Paris Saint-Germain" -> AzulParis

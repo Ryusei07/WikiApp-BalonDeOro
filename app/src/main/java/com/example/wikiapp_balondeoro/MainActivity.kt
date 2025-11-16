@@ -1,43 +1,50 @@
-// En: com/example/wikiapp_balondeoro/MainActivity.kt
 package com.example.wikiapp_balondeoro
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.*
-import androidx.compose.ui.platform.LocalContext
-import com.example.wikiapp_balondeoro.diseño.PantallaInicio
-import com.example.wikiapp_balondeoro.diseño.PantallaJugadores
-import com.example.wikiapp_balondeoro.clases.crearJugadores
+import androidx.compose.material3.MaterialTheme
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.wikiapp_balondeoro.diseño.HomeScreen
+import com.example.wikiapp_balondeoro.views.clubs.ClubsScreen
+import com.example.wikiapp_balondeoro.views.details_player.DetailsPlayerScreen
+import com.example.wikiapp_balondeoro.views.players.PlayersScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // Opción 1: Usar MaterialTheme directamente
-            androidx.compose.material3.MaterialTheme {
-                // Estado para controlar qué pantalla mostrar
-                var mostrarPantallaJugadores by remember { mutableStateOf(false) }
-
-                if (mostrarPantallaJugadores) {
-                    PantallaJugadores(
-                        jugadores = crearJugadores(),
-                        onBackClicked = {
-                            mostrarPantallaJugadores = false
-                        }
-                    )
-                } else {
-                    PantallaInicio(
-                        onStartClicked = {
-                            mostrarPantallaJugadores = true
-                        }
-                    )
+            MaterialTheme {
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = "home") {
+                    composable("home") {
+                        HomeScreen(
+                            navController = navController,
+                            onJugadoresClicked = { navController.navigate("players") },
+                            onEquiposClicked = { navController.navigate("clubs") }
+                        )
+                    }
+                    composable("players") {
+                        PlayersScreen(navController = navController)
+                    }
+                    composable("clubs") {
+                        ClubsScreen(navController = navController)
+                    }
+                    composable(
+                        "details/{playerIndex}",
+                        arguments = listOf(navArgument("playerIndex") { type = NavType.IntType })
+                    ) { backStackEntry ->
+                        DetailsPlayerScreen(
+                            navController = navController,
+                            playerIndex = backStackEntry.arguments?.getInt("playerIndex") ?: 0
+                        )
+                    }
                 }
             }
         }
     }
 }
-
-// NO NECESITAS AppNavigation() NI @Preview aquí.
-// El @Preview debe estar en los archivos de cada pantalla (como HomeScreen.kt)
-// o en el propio NavigationWrapper.kt si quieres previsualizar la navegación.
