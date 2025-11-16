@@ -61,6 +61,5 @@ dependencies {
     implementation(libs.kotlin.serialization)
     implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.androidx.navigation.compose)
-    implementation("androidx.compose.material:material-icons-extended")
-
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
 }
