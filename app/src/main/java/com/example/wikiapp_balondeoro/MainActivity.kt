@@ -1,3 +1,4 @@
+// En: com/example/wikiapp_balondeoro/MainActivity.kt
 package com.example.wikiapp_balondeoro
 
 import android.os.Bundle
@@ -36,3 +37,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+// NO NECESITAS AppNavigation() NI @Preview aquí.
+// El @Preview debe estar en los archivos de cada pantalla (como HomeScreen.kt)
+// o en el propio NavigationWrapper.kt si quieres previsualizar la navegación.

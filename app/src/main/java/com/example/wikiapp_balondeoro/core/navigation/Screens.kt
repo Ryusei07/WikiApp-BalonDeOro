@@ -1,19 +1,22 @@
 package com.example.wikiapp_balondeoro.core.navigation
 
-import com.example.wikiapp_balondeoro.clases.Jugador
 import kotlinx.serialization.Serializable
 
 @Serializable
-object Home
+sealed interface Route {
+    @Serializable
+    data object Home : Route
 
-@Serializable
-object History
+    @Serializable
+    data object Players : Route
 
-@Serializable
-object Players
+    @Serializable
+    data object Clubs : Route
 
-@Serializable
-data class PlayersDetails(val jugador: Jugador)
+    @Serializable
+    data object History : Route
 
-@Serializable
-object Clubs
+    @Serializable
+    data class PlayersDetails(val playerIndex: Int) : Route
+}
+
