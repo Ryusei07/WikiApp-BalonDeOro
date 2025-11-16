@@ -103,10 +103,10 @@ fun crearClubes(): List<Club>{
         return estadisticas
     }
 
-fun crearJugadores(){
-    val equipos  = crearClubes()
+fun crearJugadores(): List<Jugador> {
+    val equipos = crearClubes()
     val estad = crearEstadisticas()
-    val jugadores: List<Jugador> = listOf(
+    return listOf(
         Jugador("Stanley Matthews", "Ingles", listOf(1956), 1, listOf(estad[0])),
         Jugador("Alfredo Stéfano Di Stéfano Laulhé", "Argentino/Español", listOf(1957,1959), 2, listOf(estad[1],estad[3])),
         Jugador("Raymond Kopaszewski", "Frences/Polaco", listOf(1958), 1, listOf(estad[2])),
@@ -153,7 +153,7 @@ fun crearJugadores(){
         Jugador("Luka Modrić", "Croata", listOf(2018), 1, listOf(estad[62])),
         Jugador("Karim Mostafa Benzema", "Frances", listOf(2022), 1, listOf(estad[65])),
         Jugador("Rodrigo Hernández Cascante", "Español", listOf(2024), 1, listOf(estad[67])),
-        Jugador("Masour Ousmane Dembelé", "Frances", listOf(2025), 1, listOf(estad[68])),
+        Jugador("Masour Ousmane Dembelé", "Frances", listOf(2025), 1, listOf(estad[68]))
     )
 }
 
