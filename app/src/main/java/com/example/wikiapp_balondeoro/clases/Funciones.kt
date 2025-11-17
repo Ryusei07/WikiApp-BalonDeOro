@@ -97,9 +97,9 @@ fun crearEstadisticas(): List<Estadisticas>{
         Estadisticas(2,6,"Real Madrid", "Liga de Campeones de la UEFA, Subcampeon mundial 2018", "Liderazgo y rendimiento destacado en liga y mundial"),
         Estadisticas(54,19,"Barcelona", "LaLiga, Supercopa de España", "Maximo goleador y asistente, figura en titulos nacionales"),
         Estadisticas(0,0,"No se otorgo en ese año", "No se otorgo en ese año", "No se otorgo en ese año"),
-        Estadisticas(41,17,"Paris Saint-Germain", "Copa America 2021, Ligue 1", "Maximo goeleador y asistente, rendimiento sobresaliente"),
+        Estadisticas(41,17,"Paris Saint-Germain", "Copa América 2021, Ligue 1", "Maximo goeleador y asistente, rendimiento sobresaliente"),
         Estadisticas(44,15,"Real Madrid", "LaLiga, Liga de Campeones de la UEFA, Supercopa de Europa", "Maximo goleador, figura clave en titulos nacionales e internacionales"),
-        Estadisticas(30,9,"Inter Miami", "Luegues Cup, Copa de la Liga", "Maximo goleador y asistente, figura en titulos internacionales"),
+        Estadisticas(30,9,"Inter Miami", "Leagues Cup, Copa de la Liga", "Maximo goleador y asistente, figura en titulos internacionales"),
         Estadisticas(12,7,"Manchester City", "Premier League, FA cup, Liga de Campeones de la UEFA, Eurocopa 2024", "Maximo goleador de la liga, rendiemiento destacado"),
         Estadisticas(27,15,"Paris Saint-Germain", "Ligue 1, Copa de francia, Liga de Campeones de la UEFA", "Maximo goleador y asistente, figura en titulos nacionales e internacionales")
     )
