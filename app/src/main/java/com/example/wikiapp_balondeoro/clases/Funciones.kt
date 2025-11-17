@@ -151,11 +151,11 @@ fun crearJugadores(): List<Jugador> {
         Jugador("Fabio Cannavaro", "Italiano", listOf(2006), 1, listOf(estad[50]), R.drawable.fabio_cannavaro_2006, R.drawable.italia),
         Jugador("Ricardo Izecson Dos Santos Leite", "Brazileño", listOf(2007), 1, listOf(estad[51]), R.drawable.kaka_2007, R.drawable.brasil),
         Jugador("Cristiano Ronaldo dos Santos Aveiro", "Portugal", listOf(2008,2013,2014,2016,2017), 5, listOf(estad[52],estad[57],estad[58],estad[60],estad[61]), R.drawable.cristiano_ronaldo_2008, R.drawable.portugal),
-        Jugador("Lionel Andrés Messi Cuccittini", "Argentino", listOf(2009,2010,2011,2012,2015,2019,2021,2023), 8, listOf(estad[53],estad[54],estad[55],estad[56],estad[59],estad[63],estad[64],estad[66]), R.drawable.lionel_messi_2009, R.drawable.argentina),
+        Jugador("Lionel Andrés Messi Cuccittini", "Argentino", listOf(2009,2010,2011,2012,2015,2019,2021,2023), 8, listOf(estad[53],estad[54],estad[55],estad[56],estad[59],estad[63],estad[65],estad[67]), R.drawable.lionel_messi_2009, R.drawable.argentina),
         Jugador("Luka Modrić", "Croata", listOf(2018), 1, listOf(estad[62]), R.drawable.luka_modric_2018, R.drawable.croacia),
-        Jugador("Karim Mostafa Benzema", "Frances", listOf(2022), 1, listOf(estad[65]), R.drawable.karim_benzema_2022, R.drawable.francia),
-        Jugador("Rodrigo Hernández Cascante", "Español", listOf(2024), 1, listOf(estad[67]), R.drawable.rodri_2024, R.drawable.espana),
-        Jugador("Masour Ousmane Dembelé", "Frances", listOf(2025), 1, listOf(estad[68]), R.drawable.ousmane_dembele_2025, R.drawable.francia)
+        Jugador("Karim Mostafa Benzema", "Frances", listOf(2022), 1, listOf(estad[66]), R.drawable.karim_benzema_2022, R.drawable.francia),
+        Jugador("Rodrigo Hernández Cascante", "Español", listOf(2024), 1, listOf(estad[68]), R.drawable.rodri_2024, R.drawable.espana),
+        Jugador("Masour Ousmane Dembelé", "Frances", listOf(2025), 1, listOf(estad[69]), R.drawable.ousmane_dembele_2025, R.drawable.francia)
     )
     return jugadores
 }
