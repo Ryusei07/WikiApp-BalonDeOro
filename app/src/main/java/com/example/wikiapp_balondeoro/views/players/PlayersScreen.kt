@@ -186,11 +186,13 @@ fun ItemJugador(jugador: Jugador, onJugadorClicked: (Jugador) -> Unit) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Image(
-                            painter = painterResource(id = jugador.imagen_pais),
-                            contentDescription = "Bandera de ${jugador.nacionalidad}",
-                            modifier = Modifier.height(16.dp)
-                        )
+                        jugador.imagen_pais.forEach { imagenId ->
+                            Image(
+                                painter = painterResource(id = imagenId),
+                                contentDescription = null, // Decorative image
+                                modifier = Modifier.height(16.dp)
+                            )
+                        }
                         Text(
                             text = nombrePais,
                             fontSize = 12.sp,

@@ -1,7 +1,6 @@
 package com.example.wikiapp_balondeoro.views.details_player
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -95,15 +94,13 @@ fun DetailsPlayerScreen(playerIndex: Int, navController: NavHostController) {
                             colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.9f))
                         ) {
                             Column(modifier = Modifier.padding(16.dp)) {
-                                if (jugador.stats.size > 1) {
-                                    Text(
-                                        text = "Año: ${jugador.añosBalones[index]}",
-                                        fontWeight = FontWeight.Bold,
-                                        fontSize = 20.sp,
-                                        color = Color(0xFFD4AF37)
-                                    )
-                                    Spacer(modifier = Modifier.height(8.dp))
-                                }
+                                Text(
+                                    text = "Año: ${jugador.añosBalones[index]}",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 20.sp,
+                                    color = Color(0xFFD4AF37)
+                                )
+                                Spacer(modifier = Modifier.height(8.dp))
                                 Text(text = "Goles: ${stat.cantidadGoles}", color = Color.Black)
                                 Text(text = "Asistencias: ${stat.cantidadAsitencias}", color = Color.Black)
                                 Text(text = "Club: ${stat.club}", color = Color.Black)

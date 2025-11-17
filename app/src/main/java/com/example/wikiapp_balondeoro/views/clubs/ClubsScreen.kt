@@ -76,7 +76,7 @@ fun ClubsScreen(navController: NavController) {
             // 2. BARRA SUPERIOR PERSONALIZADA
             TopBarEquipos(navController)
 
-            // 3. LISTA DENTRO DE UN SURFACE TRANSPARENTE
+            // 3. LISTA DE CLUBES
             LazyColumn(
                 contentPadding = PaddingValues(vertical = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp) // Espacio entre cada botón
@@ -163,7 +163,7 @@ fun ClubButton(club: Club, onClick: () -> Unit) {
             .height(70.dp)
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(50), // Bordes totalmente redondeados
-        colors = CardDefaults.cardColors(containerColor = buttonColor)
+        colors = CardDefaults.cardColors(containerColor = buttonColor.copy(alpha = 1f))
     ) {
         Row(
             modifier = Modifier

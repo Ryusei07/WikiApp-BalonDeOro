@@ -1,14 +1,33 @@
 package com.example.wikiapp_balondeoro.views.details_club
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,6 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.wikiapp_balondeoro.R
 import com.example.wikiapp_balondeoro.clases.Jugador
+import com.example.wikiapp_balondeoro.clases.crearClubes
 import com.example.wikiapp_balondeoro.clases.crearJugadores
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,6 +52,7 @@ fun DetailsClubScreen(navController: NavController, clubName: String) {
     val jugadoresDelClub = allJugadores.filter { jugador ->
         jugador.stats.any { it.club == clubName }
     }
+    val club = crearClubes().find { it.nombre == clubName }
 
     Scaffold(
         topBar = {
@@ -72,28 +93,47 @@ fun DetailsClubScreen(navController: NavController, clubName: String) {
                     .drawBehind {
                         drawRect(color = Color.Black.copy(alpha = 0.3f))
                     }
-            )
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
                     .padding(innerPadding)
-                    .padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                item {
-                    Text(
-                        text = "${jugadoresDelClub.size} Ganadores en este club",
-                        color = Color.White,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp)
-                    )
-                }
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    item {
+                        club?.let {
+                            Image(
+                                painter = painterResource(id = it.imagen),
+                                contentDescription = "Logo de ${it.nombre}",
+                                modifier = Modifier
+                                    .height(150.dp)
+                                    .padding(vertical = 16.dp)
+                            )
+                        }
+                        val textoGanadores = if (jugadoresDelClub.size == 1) {
+                            "1 Ganador en este club"
+                        } else {
+                            "${jugadoresDelClub.size} Ganadores en este club"
+                        }
+                        Text(
+                            text = textoGanadores,
+                            color = Color.White,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp)
+                        )
+                    }
 
-                items(jugadoresDelClub) { jugador ->
-                    ItemJugador(jugador = jugador) { selectedJugador ->
-                        val playerIndex = allJugadores.indexOf(selectedJugador)
-                        navController.navigate("details/$playerIndex")
+                    items(jugadoresDelClub) { jugador ->
+                        val añosEnClub = jugador.añosBalones.filterIndexed { index, _ ->
+                            jugador.stats.getOrNull(index)?.club == clubName
+                        }
+                        ItemJugador(jugador = jugador, añosEnClub = añosEnClub) { selectedJugador ->
+                            val playerIndex = allJugadores.indexOf(selectedJugador)
+                            navController.navigate("details/$playerIndex")
+                        }
                     }
                 }
             }
@@ -103,7 +143,7 @@ fun DetailsClubScreen(navController: NavController, clubName: String) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ItemJugador(jugador: Jugador, onJugadorClicked: (Jugador) -> Unit) {
+fun ItemJugador(jugador: Jugador, añosEnClub: List<Int>, onJugadorClicked: (Jugador) -> Unit) {
     val nombrePais = when (jugador.nacionalidad) {
         "Ingles" -> "Inglaterra"
         "Argentino/Español" -> "Argentina/España"
@@ -128,13 +168,13 @@ fun ItemJugador(jugador: Jugador, onJugadorClicked: (Jugador) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(120.dp),
+            .height(120.dp)
+            .clickable { onJugadorClicked(jugador) },
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color.White.copy(alpha = 0.95f)
-        ),
-        onClick = { onJugadorClicked(jugador) }
+        )
     ) {
         Row(
             modifier = Modifier
@@ -184,11 +224,13 @@ fun ItemJugador(jugador: Jugador, onJugadorClicked: (Jugador) -> Unit) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Image(
-                            painter = painterResource(id = jugador.imagen_pais),
-                            contentDescription = "Bandera de ${jugador.nacionalidad}",
-                            modifier = Modifier.height(16.dp)
-                        )
+                        jugador.imagen_pais.forEach { imagenId ->
+                            Image(
+                                painter = painterResource(id = imagenId),
+                                contentDescription = null, // Decorative image
+                                modifier = Modifier.height(16.dp)
+                            )
+                        }
                         Text(
                             text = nombrePais,
                             fontSize = 12.sp,
@@ -198,7 +240,7 @@ fun ItemJugador(jugador: Jugador, onJugadorClicked: (Jugador) -> Unit) {
                     }
 
                     Text(
-                        text = "📅 ${jugador.añosBalones.joinToString(", ")}",
+                        text = "📅 ${añosEnClub.joinToString(", ")}",
                         fontSize = 12.sp,
                         color = Color(0xFF666666),
                         fontWeight = FontWeight.Medium
