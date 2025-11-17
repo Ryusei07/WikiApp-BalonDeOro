@@ -85,8 +85,7 @@ fun ClubsScreen(navController: NavController) {
                     ClubButton(
                         club = club,
                         onClick = {
-                            // TODO: Aquí irá la navegación a la página de detalles del club
-                            // Ejemplo: navController.navigate(ClubDetails(club.id))
+                            navController.navigate("details_club/${club.nombre}")
                         }
                     )
                 }
