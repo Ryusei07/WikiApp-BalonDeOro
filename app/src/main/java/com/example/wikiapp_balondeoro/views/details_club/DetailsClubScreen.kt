@@ -31,15 +31,18 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.wikiapp_balondeoro.R
 import com.example.wikiapp_balondeoro.clases.Jugador
 import com.example.wikiapp_balondeoro.clases.crearClubes
@@ -58,13 +61,24 @@ fun DetailsClubScreen(navController: NavController, clubName: String) {
         topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        text = clubName,
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 24.sp
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        club?.let {
+                            Image(
+                                painter = painterResource(id = it.imagen),
+                                contentDescription = "Logo de ${it.nombre}",
+                                modifier = Modifier.size(32.dp) // Ajusta el tamaño según veas conveniente
+                            )
+                            Spacer(modifier = Modifier.width(12.dp))
+                        }
+                        Text(
+                            text = clubName,
+                            color = Color.White,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 24.sp
+                        )
+                    }
                 },
+
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
@@ -84,8 +98,11 @@ fun DetailsClubScreen(navController: NavController, clubName: String) {
             Image(
                 painter = painterResource(id = R.drawable.p_inicio_balon_de_oro),
                 contentDescription = "Fondo",
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize(),
+
                 contentScale = ContentScale.Crop
+
             )
             Box(
                 modifier = Modifier
@@ -274,5 +291,19 @@ fun ItemJugador(jugador: Jugador, añosEnClub: List<Int>, onJugadorClicked: (Jug
                 }
             }
         }
+    }
+}
+@Preview(showBackground = true, name = "Vista Previa DetailsClubScreen")
+@Composable
+fun DetailsClubScreenPreview() {
+    // Para la previsualización, necesitamos un NavController "falso" y el nombre de un club.
+    // Usamos 'rememberNavController()' para el controlador.
+    // Elegimos "Juventus" como ejemplo porque tiene varios ganadores y una imagen de fondo definida.
+    val navController = rememberNavController()
+    val clubDeEjemplo = "Juventus"
+
+    // Envolvemos la preview en el tema de la app para que aplique los estilos correctos.
+    com.example.wikiapp_balondeoro.ui.theme.WikiAppBalonDeOroTheme {
+        DetailsClubScreen(navController = navController, clubName = clubDeEjemplo)
     }
 }

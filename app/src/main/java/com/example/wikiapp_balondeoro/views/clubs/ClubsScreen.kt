@@ -153,7 +153,7 @@ fun ClubButton(club: Club, onClick: () -> Unit) {
 
     // Lógica corregida para el color del texto
     val textColor = when (club.nombre) {
-        "Real Madrid", "Juventus", "Borussia Mönchengladbach" -> Color.Black
+        "Real Madrid", "Juventus", "Borussia Mönchengladbach", "Borussia Dortmund" -> Color.Black
         else -> Color.White
     }
 

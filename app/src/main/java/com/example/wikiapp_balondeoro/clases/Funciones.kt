@@ -38,7 +38,7 @@ fun crearEstadisticas(): List<Estadisticas>{
         Estadisticas(28,9,"Real Madrid", "LaLiga, Copa de Europa", "Máximo goleador y motor ofensivo de Real Madrid en todos los torneos"),
         Estadisticas(19,6,"Barcelona", "Copa de Europa, LaLiga", "Líder en asistencias y goles importantes, clave en los títulos"),
         Estadisticas(19,7,"Juventus", "Serie A, Copa de Italia", "Máximo goleador de la liga y decisivo en partidos de Copa"),
-        Estadisticas(16,5,"Dukla Plaga", "Liga Checoslovaca", "Líder del mediocampo, excelente control de juego y goles clave"),
+        Estadisticas(16,5,"Dukla Praga", "Liga Checoslovaca", "Líder del mediocampo, excelente control de juego y goles clave"),
         Estadisticas(0,0,"Dynamo Moscú", "Ninguno", "Sobresaliente actuación como portero, clave en la defensa de su equipo"),
         Estadisticas(26,5,"Manchester United", "FA Cup", "Máximo goleador de la liga, decisivo en victorias importantes"),
         Estadisticas(32,8,"Benfica", "Primeira liga, Copa de europa", "Maximo goleador y figura clave en los titulos europeos del Benfica"),
